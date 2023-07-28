@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG SALESFORCE_CLI_VERSION=nightly
 ARG SF_CLI_VERSION=^1
 
+# install node js
 RUN echo 'b298a73a9fc07badfa9e4a2e86ed48824fc9201327cdc43e3f3f58b273c535e7  ./nodejs.tar.gz' > node-file-lock.sha \
   && curl -s -o nodejs.tar.gz https://nodejs.org/dist/v18.15.0/node-v18.15.0-linux-x64.tar.gz \
   && shasum --check node-file-lock.sha
@@ -11,6 +12,7 @@ RUN mkdir /usr/local/lib/nodejs \
   && tar xf nodejs.tar.gz -C /usr/local/lib/nodejs/ --strip-components 1 \
   && rm nodejs.tar.gz node-file-lock.sha
 
+# install sfdx
 ENV PATH=/usr/local/lib/nodejs/bin:$PATH
 RUN npm install --global sfdx-cli@${SALESFORCE_CLI_VERSION} --ignore-scripts
 RUN npm install --global @salesforce/cli@${SF_CLI_VERSION}
