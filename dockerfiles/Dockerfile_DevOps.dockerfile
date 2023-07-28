@@ -2,7 +2,6 @@ FROM heroku/heroku:20
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG SALESFORCE_CLI_VERSION=nightly
-# this will typically be nightly
 ARG SF_CLI_VERSION=^1
 
 RUN echo 'b298a73a9fc07badfa9e4a2e86ed48824fc9201327cdc43e3f3f58b273c535e7  ./nodejs.tar.gz' > node-file-lock.sha \
