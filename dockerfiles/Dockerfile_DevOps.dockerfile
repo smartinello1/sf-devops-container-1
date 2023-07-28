@@ -22,7 +22,7 @@ RUN apt-get autoremove --assume-yes \
   && apt-get clean --assume-yes \
   && rm -rf /var/lib/apt/lists/*
 
-RUN npm install --global @dxatscale/sfpowerscripts
+RUN echo y | sf plugins install sfpowerkit
 
 # Install sgd
 RUN echo y | sf plugins install sfdx-git-delta
