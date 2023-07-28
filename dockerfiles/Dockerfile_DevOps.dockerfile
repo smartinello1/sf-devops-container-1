@@ -24,6 +24,9 @@ RUN apt-get autoremove --assume-yes \
 
 RUN npm install --global @dxatscale/sfpowerscripts
 
+RUN echo y | sfdx plugins:install sfdx-git-delta
+RUN sfdx plugins
+
 # GitHub cli
 #RUN npm install -g gh
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
