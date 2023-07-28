@@ -24,8 +24,11 @@ RUN apt-get autoremove --assume-yes \
 
 RUN npm install --global @dxatscale/sfpowerscripts
 
-RUN echo y | sfdx plugins:install sfdx-git-delta
-RUN sfdx plugins
+# Install sgd
+RUN echo y | sf plugins install sfdx-git-delta
+RUN sf plugins
+
+RUN sf plugins install @salesforce/sfdx-scanner
 
 # GitHub cli
 #RUN npm install -g gh
